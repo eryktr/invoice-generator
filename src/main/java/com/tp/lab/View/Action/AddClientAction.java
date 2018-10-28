@@ -27,5 +27,7 @@ public class AddClientAction implements Action {
 
         Client c = new Client(first_name, last_name, new Address(country, city, street, homeNumber));
         System.out.println("CLIENT " + c.getFirstName() + " " + c.getLastName() + " ADDED SUCCESSFULLY");
+
+        in.close();
     }
 }

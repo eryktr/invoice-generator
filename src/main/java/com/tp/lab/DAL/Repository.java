@@ -12,8 +12,12 @@ public final class Repository {
     private static ArrayList<Bill> bills;
     private static ArrayList<Client> clients;
 
-    public ArrayList<Bill> getBills() {
-        return null;
+    public static ArrayList<Bill> getBills() {
+        return bills;
+    }
+
+    public static ArrayList<Client> getClients() {
+        return clients;
     }
 
     public static void addClient(Client c) {
