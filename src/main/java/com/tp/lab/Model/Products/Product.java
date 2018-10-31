@@ -1,8 +1,10 @@
 package com.tp.lab.Model.Products;
 
+import com.tp.lab.Model.Printable;
+import com.tp.lab.Model.Utility.Constants;
 import com.tp.lab.Model.Utility.UniqueIDGenerator;
 
-public final class Product {
+public final class Product implements Printable {
     private long ID;
     private UniqueIDGenerator idGenerator = new UniqueIDGenerator();
     private String name;
@@ -27,6 +29,11 @@ public final class Product {
         return ID;
     }
 
-
-
+    @Override
+    public void print() {
+        System.out.println("ID: "+ ID);
+        System.out.println("Name: "+ name);
+        System.out.println("Price: "+ price + Constants.CurrencyString);
+        System.out.println(Constants.UnderlineString);
+    }
 }

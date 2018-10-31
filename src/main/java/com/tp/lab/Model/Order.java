@@ -1,11 +1,13 @@
 package com.tp.lab.Model;
 
 import com.tp.lab.Model.Products.Product;
+import com.tp.lab.Model.Utility.Constants;
 import com.tp.lab.Model.Utility.UniqueIDGenerator;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public final class Order {
+public final class Order implements Printable {
 
     private long ID;
     private UniqueIDGenerator idGenerator = new UniqueIDGenerator();
@@ -29,4 +31,25 @@ public final class Order {
         return price;
     }
 
+    @Override
+    public void print() {
+        List<Product> productCopy = new ArrayList<>(products);
+        System.out.println("PRODUCTS");
+        for(int i = 0; i < productCopy.size(); i++) {
+            Product currentProduct = productCopy.get(i);
+            int counter = 1;
+            System.out.println(Constants.UnderlineString);
+            for(int j = i+1; j < productCopy.size(); j++) {
+
+                Product compareProduct = productCopy.get(j);
+                if(compareProduct.getID() == currentProduct.getID()) {
+                    counter++;
+                    productCopy.remove(j);
+                    j--;
+                }
+            }
+            System.out.println(currentProduct.getName() + " " + counter + " " + counter * currentProduct.getPrice() + Constants.CurrencyString);
+
+        }
+    }
 }

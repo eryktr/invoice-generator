@@ -1,9 +1,11 @@
 package com.tp.lab.Model.Client;
 
+import com.tp.lab.Model.Printable;
+import com.tp.lab.Model.Utility.Constants;
 import com.tp.lab.Model.Utility.Printer;
 import com.tp.lab.Model.Utility.UniqueIDGenerator;
 
-public final class Client {
+public final class Client implements Printable {
     private String firstName;
     private String lastName;
     private Address address;
@@ -45,8 +47,16 @@ public final class Client {
         return id;
     }
 
+    @Override
     public void print() {
-        Printer.printClient(this);
+        System.out.println("ID: " + getId());
+        System.out.println("First name: "+ getFirstName());
+        System.out.println("Last name: "+ getLastName());
+        System.out.println("Country: " +  getCountry());
+        System.out.println("City: " +  getCity());
+        System.out.println("Street: " + getStreet());
+        System.out.println("Home number: "+ getHomeNumber());
+        System.out.println(Constants.UnderlineString);
     }
 
 }

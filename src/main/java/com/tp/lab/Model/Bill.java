@@ -7,7 +7,7 @@ import com.tp.lab.Model.Utility.UniqueIDGenerator;
 
 import java.util.List;
 
-public final class Bill {
+public final class Bill implements Printable {
     private long ID;
     private UniqueIDGenerator idGenerator = new UniqueIDGenerator();
     private Client client;
@@ -25,9 +25,7 @@ public final class Bill {
         return order.getTotalPrice();
     }
 
-    public void print() {
-        Printer.printBill(this);
-    }
+
 
     public Client getClient() {
         return client;
@@ -38,5 +36,9 @@ public final class Bill {
     }
 
 
-
+    @Override
+    public void print() {
+        order.print();
+        client.print();
+    }
 }
