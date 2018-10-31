@@ -7,23 +7,37 @@ import com.tp.lab.Model.Products.Product;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public final class Repository {
-    private Repository() {}
+    private Repository() {
+    }
 
     private static List<Bill> bills = new ArrayList<>();
     private static List<Client> clients = new ArrayList<>();
     private static List<Product> products = new ArrayList<>();
 
     public static List<Bill> getBills() {
-        return bills;
+        return bills.stream().filter(Bill::isActive).collect(Collectors.toList());
     }
 
     public static List<Client> getClients() {
-        return clients;
+        return clients.stream().filter(Client::isActive).collect(Collectors.toList());
     }
 
     public static List<Product> getProducts() {
+        return products.stream().filter(Product::isActive).collect(Collectors.toList());
+    }
+
+    public static List<Bill> getAllBills() {
+        return bills;
+    }
+
+    public static List<Client> getAllClients() {
+        return clients;
+    }
+
+    public static List<Product> getAllProducts() {
         return products;
     }
 
@@ -31,7 +45,7 @@ public final class Repository {
         clients.add(c);
     }
 
-    public static  void addBill(Bill b) {
+    public static void addBill(Bill b) {
         bills.add(b);
     }
 
@@ -40,15 +54,18 @@ public final class Repository {
     }
 
     public static void deleteProduct(Product p) {
-        products.remove(p);
+        int index = products.indexOf(p);
+        products.get(index).deactivate();
     }
 
     public static void deleteClient(Client c) {
-        clients.remove(c);
+        int index = clients.indexOf(c);
+        clients.get(index).deactivate();
     }
 
     public static void deleteBill(Bill b) {
-        bills.remove(b);
+        int index = bills.indexOf(b);
+        bills.get(index).deactivate();
     }
 
 

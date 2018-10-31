@@ -48,8 +48,13 @@ public final class Order implements Printable {
                     j--;
                 }
             }
-            System.out.println(currentProduct.getName() + " " + counter + " " + counter * currentProduct.getPrice() + Constants.CurrencyString);
-
+            System.out.println("Product: " + currentProduct.getName());
+            System.out.println("Quantity: " + counter);
+            System.out.println("Price: " + Math.round(100.0 * counter * currentProduct.getPrice()) / 100 + Constants.CurrencyString);
+            System.out.println(Constants.UnderlineString);
         }
+        System.out.println(Constants.UnderlineString);
+        System.out.println("Total price: "+ Math.round(100.0 * getTotalPrice()) / 100 + Constants.CurrencyString);
+        System.out.println(Constants.UnderlineString);
     }
 }

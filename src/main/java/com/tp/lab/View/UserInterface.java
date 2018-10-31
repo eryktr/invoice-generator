@@ -13,9 +13,9 @@ public final class UserInterface {
         actions[1] = new AddClientAction();
         actions[2] = new DeleteClientAction();
         actions[3] = new ShowClientsAction();
-        //actions[4] = new AddBillAction();
-        //actions[5] = new DeleteBillAction();
-        //actions[6] = new ShowBillsAction();
+        actions[4] = new AddBillAction();
+        actions[5] = new DeleteBillAction();
+        actions[6] = new ShowBillsAction();
         actions[7] = new AddProductAction();
         actions[8] = new DeleteProductAction();
         actions[9] = new ShowProductsAction();

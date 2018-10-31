@@ -6,10 +6,12 @@ import com.tp.lab.Model.Utility.Printer;
 import com.tp.lab.Model.Utility.UniqueIDGenerator;
 
 public final class Client implements Printable {
+    private long id;
     private String firstName;
     private String lastName;
     private Address address;
-    private Long id;
+    private Boolean isActive;
+
     private static UniqueIDGenerator idGenerator = new UniqueIDGenerator();
 
     public Client(String firstName, String lastName, Address address) {
@@ -17,6 +19,7 @@ public final class Client implements Printable {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
+        this.isActive = true;
     }
 
     public String getFirstName() {
@@ -47,15 +50,28 @@ public final class Client implements Printable {
         return id;
     }
 
+    public void activate() {
+        isActive = true;
+    }
+
+    public void deactivate() {
+        isActive = false;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
     @Override
     public void print() {
-        System.out.println("ID: " + getId());
-        System.out.println("First name: "+ getFirstName());
-        System.out.println("Last name: "+ getLastName());
+        System.out.println("ID: " + id);
+        System.out.println("First name: "+ firstName);
+        System.out.println("Last name: "+ lastName);
         System.out.println("Country: " +  getCountry());
         System.out.println("City: " +  getCity());
         System.out.println("Street: " + getStreet());
         System.out.println("Home number: "+ getHomeNumber());
+        System.out.println("Active: "+ isActive);
         System.out.println(Constants.UnderlineString);
     }
 

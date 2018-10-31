@@ -9,12 +9,13 @@ public final class Product implements Printable {
     private static UniqueIDGenerator idGenerator = new UniqueIDGenerator();
     private String name;
     private double price;
-
+    private boolean isAvailable;
 
     public Product(String name, double price) {
         this.ID = idGenerator.getUniqueId();
         this.name = name;
         this.price = price;
+        this.isAvailable = true;
     }
 
     public String getName() {
@@ -34,6 +35,19 @@ public final class Product implements Printable {
         System.out.println("ID: "+ ID);
         System.out.println("Name: "+ name);
         System.out.println("Price: "+ price + Constants.CurrencyString);
+        System.out.println("Available: " + isAvailable);
         System.out.println(Constants.UnderlineString);
+    }
+
+    public void activate() {
+        isAvailable = true;
+    }
+
+    public void deactivate() {
+        isAvailable = false;
+    }
+
+    public boolean isActive() {
+        return isAvailable;
     }
 }

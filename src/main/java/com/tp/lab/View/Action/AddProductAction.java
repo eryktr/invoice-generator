@@ -1,5 +1,6 @@
 package com.tp.lab.View.Action;
 
+import com.tp.lab.DAL.Repository;
 import com.tp.lab.Model.Products.Product;
 
 import java.util.Scanner;
@@ -14,6 +15,7 @@ public class AddProductAction implements Action {
         System.out.print("Price: ");
         double price = scan.nextDouble();
         Product p = new Product(name, price);
+        Repository.addProduct(p);
 
     }
 }
