@@ -11,9 +11,9 @@ import java.util.List;
 public final class Repository {
     private Repository() {}
 
-    private static ArrayList<Bill> bills;
-    private static ArrayList<Client> clients;
-    private static ArrayList<Product>  products;
+    private static List<Bill> bills = new ArrayList<>();
+    private static List<Client> clients = new ArrayList<>();
+    private static List<Product> products = new ArrayList<>();
 
     public static List<Bill> getBills() {
         return bills;

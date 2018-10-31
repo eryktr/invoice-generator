@@ -6,12 +6,12 @@ import com.tp.lab.Model.Utility.UniqueIDGenerator;
 
 public final class Product implements Printable {
     private long ID;
-    private UniqueIDGenerator idGenerator = new UniqueIDGenerator();
+    private static UniqueIDGenerator idGenerator = new UniqueIDGenerator();
     private String name;
     private double price;
 
 
-    public Product(String name, int price) {
+    public Product(String name, double price) {
         this.ID = idGenerator.getUniqueId();
         this.name = name;
         this.price = price;

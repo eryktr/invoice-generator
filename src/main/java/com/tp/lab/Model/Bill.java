@@ -9,7 +9,7 @@ import java.util.List;
 
 public final class Bill implements Printable {
     private long ID;
-    private UniqueIDGenerator idGenerator = new UniqueIDGenerator();
+    private static UniqueIDGenerator idGenerator = new UniqueIDGenerator();
     private Client client;
     private Order order;
 
@@ -25,7 +25,9 @@ public final class Bill implements Printable {
         return order.getTotalPrice();
     }
 
-
+    public long getID() {
+        return ID;
+    }
 
     public Client getClient() {
         return client;

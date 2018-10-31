@@ -4,7 +4,7 @@ import com.tp.lab.Model.Utility.UniqueIDGenerator;
 
 public final class Address {
     private long ID;
-    private UniqueIDGenerator idGenerator = new UniqueIDGenerator();
+    private static UniqueIDGenerator idGenerator = new UniqueIDGenerator();
     private String country;
     private String city;
     private String street;

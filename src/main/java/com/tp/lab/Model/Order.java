@@ -10,7 +10,7 @@ import java.util.List;
 public final class Order implements Printable {
 
     private long ID;
-    private UniqueIDGenerator idGenerator = new UniqueIDGenerator();
+    private static UniqueIDGenerator idGenerator = new UniqueIDGenerator();
     private List<Product> products;
 
 

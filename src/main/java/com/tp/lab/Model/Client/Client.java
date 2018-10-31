@@ -10,7 +10,7 @@ public final class Client implements Printable {
     private String lastName;
     private Address address;
     private Long id;
-    private UniqueIDGenerator idGenerator = new UniqueIDGenerator();
+    private static UniqueIDGenerator idGenerator = new UniqueIDGenerator();
 
     public Client(String firstName, String lastName, Address address) {
         this.id = idGenerator.getUniqueId();
