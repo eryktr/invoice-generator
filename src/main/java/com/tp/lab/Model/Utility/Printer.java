@@ -19,7 +19,7 @@ public final class Printer {
             for(int j = i+1; j < productCopy.size(); j++) {
 
                 Product compareProduct = productCopy.get(j);
-                if(compareProduct.getClass().getName().equals(currentProduct.getClass().getName())) {
+                if(compareProduct.getID() == currentProduct.getID()) {
                     counter++;
                     productCopy.remove(j);
                     j--;

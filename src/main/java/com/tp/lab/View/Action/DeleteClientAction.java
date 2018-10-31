@@ -1,13 +1,12 @@
 package com.tp.lab.View.Action;
 
 import com.tp.lab.DAL.Repository;
-import com.tp.lab.Model.Client;
+import com.tp.lab.Model.Client.Client;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class DeleteClientAction implements Action{
     @Override

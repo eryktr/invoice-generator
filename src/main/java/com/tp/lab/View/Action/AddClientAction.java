@@ -1,12 +1,11 @@
 package com.tp.lab.View.Action;
 
-import com.tp.lab.DAL.Repository;
-import com.tp.lab.Model.Address;
-import com.tp.lab.Model.Client;
+import com.tp.lab.Model.Client.Address;
+import com.tp.lab.Model.Client.Client;
 
 import java.util.Scanner;
 
-public class AddClientAction implements Action {
+public final class AddClientAction implements Action {
     @Override
     public void execute() {
         String first_name, last_name, country, city, street, homeNumber;

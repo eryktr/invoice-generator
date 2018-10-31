@@ -1,14 +1,19 @@
 package com.tp.lab.Model;
 
 import com.tp.lab.Model.Products.Product;
+import com.tp.lab.Model.Utility.UniqueIDGenerator;
+
 import java.util.List;
 
-public class Order {
+public final class Order {
 
+    private long ID;
+    private UniqueIDGenerator idGenerator = new UniqueIDGenerator();
     private List<Product> products;
 
 
     public Order(List<Product> products) {
+        this.ID = idGenerator.getUniqueId();
         this.products = products;
     }
 
@@ -17,11 +22,11 @@ public class Order {
     }
 
     public double getTotalPrice() {
-        return 0;
-    }
-
-    public double getPartialPrice() {
-        return 0;
+        double price = 0;
+        for(Product p : products) {
+            price += p.getPrice();
+        }
+        return price;
     }
 
 }
