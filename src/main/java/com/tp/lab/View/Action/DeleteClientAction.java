@@ -14,14 +14,14 @@ public class DeleteClientAction implements Action{
         Scanner in = new Scanner(System.in);
         System.out.println("---------- DELETE CLIENT ----------");
         long clientID = in.nextLong();
-        ArrayList<Client> allCLients = Repository.getClients();
+        List<Client> allCLients = Repository.getClients();
 
         List<Client> foundClients = allCLients.stream().filter(c -> c.getId() == clientID).collect(Collectors.toList());
         if(foundClients.isEmpty()) {
             System.out.println("No such client exists.");
             return;
         }
-        Repository.getClients().remove(foundClients.get(0));
+        Repository.deleteClient(foundClients.get(0));
         System.out.println("Client removed successfully.");
         in.close();
     }

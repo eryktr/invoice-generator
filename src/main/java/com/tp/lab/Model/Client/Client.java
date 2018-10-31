@@ -1,5 +1,6 @@
 package com.tp.lab.Model.Client;
 
+import com.tp.lab.Model.Utility.Printer;
 import com.tp.lab.Model.Utility.UniqueIDGenerator;
 
 public final class Client {
@@ -24,11 +25,28 @@ public final class Client {
         return lastName;
     }
 
-    public Address getAddress() {
-        return address;
+    public String getCountry() {
+        return address.getCountry();
+    }
+
+    public String getCity() {
+        return address.getCity();
+    }
+
+    public String getStreet() {
+        return address.getStreet();
+    }
+
+    public String getHomeNumber() {
+        return address.getHomeNumber();
     }
 
     public Long getId() {
         return id;
     }
+
+    public void print() {
+        Printer.printClient(this);
+    }
+
 }

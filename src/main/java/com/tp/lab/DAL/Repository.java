@@ -23,6 +23,10 @@ public final class Repository {
         return clients;
     }
 
+    public static List<Product> getProducts() {
+        return products;
+    }
+
     public static void addClient(Client c) {
         clients.add(c);
     }
@@ -31,12 +35,21 @@ public final class Repository {
         bills.add(b);
     }
 
-    public static List<Product> getProducts() {
-        return products;
-    }
-
     public static void addProduct(Product p) {
         products.add(p);
     }
+
+    public static void deleteProduct(Product p) {
+        products.remove(p);
+    }
+
+    public static void deleteClient(Client c) {
+        clients.remove(c);
+    }
+
+    public static void deleteBill(Bill b) {
+        bills.remove(b);
+    }
+
 
 }

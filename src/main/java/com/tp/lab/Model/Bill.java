@@ -21,13 +21,22 @@ public final class Bill {
         this.order = order;
     }
 
+    public double getTotalPrice() {
+        return order.getTotalPrice();
+    }
+
     public void print() {
         Printer.printBill(this);
+    }
+
+    public Client getClient() {
+        return client;
     }
 
     public List<Product> getProducts() {
         return order.getProducts();
     }
+
 
 
 }

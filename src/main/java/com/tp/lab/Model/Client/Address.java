@@ -18,4 +18,24 @@ public final class Address {
         this.street = street;
         this.homeNumber = homeNumber;
     }
+
+    public long getID() {
+        return ID;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public String getHomeNumber() {
+        return homeNumber;
+    }
 }
