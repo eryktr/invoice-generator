@@ -1,4 +1,4 @@
-package com.tp.lab.Model.Utility;
+package com.tp.lab.model.utility;
 
 public final class UniqueIDGenerator {
     private long currentID = 1;

@@ -1,6 +1,6 @@
-package com.tp.lab.View.Action;
+package com.tp.lab.view.action;
 
-import com.tp.lab.Model.Utility.Printer;
+import com.tp.lab.model.utility.Printer;
 
 public class ShowProductsAction implements Action {
     @Override

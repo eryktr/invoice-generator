@@ -1,8 +1,8 @@
-package com.tp.lab.DAL;
+package com.tp.lab.dal;
 
-import com.tp.lab.Model.Bill;
-import com.tp.lab.Model.Client.Client;
-import com.tp.lab.Model.Products.Product;
+import com.tp.lab.model.Bill;
+import com.tp.lab.model.client.Client;
+import com.tp.lab.model.products.Product;
 
 
 import java.util.ArrayList;
@@ -10,12 +10,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public final class Repository {
-    private Repository() {
-    }
 
     private static List<Bill> bills = new ArrayList<>();
     private static List<Client> clients = new ArrayList<>();
     private static List<Product> products = new ArrayList<>();
+
+    private Repository() {
+    }
+
+
 
     public static List<Bill> getBills() {
         return bills.stream().filter(Bill::isActive).collect(Collectors.toList());
@@ -41,30 +44,30 @@ public final class Repository {
         return products;
     }
 
-    public static void addClient(Client c) {
-        clients.add(c);
+    public static void addClient(final Client client) {
+        clients.add(client);
     }
 
-    public static void addBill(Bill b) {
-        bills.add(b);
+    public static void addBill(final Bill bill) {
+        bills.add(bill);
     }
 
-    public static void addProduct(Product p) {
-        products.add(p);
+    public static void addProduct(final Product product) {
+        products.add(product);
     }
 
-    public static void deleteProduct(Product p) {
-        int index = products.indexOf(p);
+    public static void deleteProduct(final Product product) {
+        final int index = products.indexOf(product);
         products.get(index).deactivate();
     }
 
-    public static void deleteClient(Client c) {
-        int index = clients.indexOf(c);
+    public static void deleteClient(final Client client) {
+        final int index = clients.indexOf(client);
         clients.get(index).deactivate();
     }
 
-    public static void deleteBill(Bill b) {
-        int index = bills.indexOf(b);
+    public static void deleteBill(final Bill bill) {
+        final int index = bills.indexOf(bill);
         bills.get(index).deactivate();
     }
 

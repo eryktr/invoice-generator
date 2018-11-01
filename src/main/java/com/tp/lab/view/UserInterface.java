@@ -1,11 +1,11 @@
-package com.tp.lab.View;
+package com.tp.lab.view;
 
-import com.tp.lab.View.Action.*;
+import com.tp.lab.view.action.*;
 
 import java.util.Scanner;
 
 public final class UserInterface {
-    private Action[] actions;
+    private final Action[] actions;
 
     public UserInterface() {
         actions = new Action[10];
@@ -36,11 +36,11 @@ public final class UserInterface {
             System.out.println("[9] SHOW PRODUCTS");
             System.out.println("[0] QUIT");
             System.out.println("Choice: ");
-            Scanner scanner = new Scanner(System.in);
-            int choice = scanner.nextInt();
+            final Scanner scanner = new Scanner(System.in);
+            final int choice = scanner.nextInt();
             if(choice < 0|| choice > 9) {
-                Action a = new IllegalChoiceAction();
-                a.execute();
+                final Action action = new IllegalChoiceAction();
+                action.execute();
             }
             else {
                 actions[choice].execute();

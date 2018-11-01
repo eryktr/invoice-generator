@@ -1,17 +1,17 @@
-package com.tp.lab.Model.Client;
+package com.tp.lab.model.client;
 
-import com.tp.lab.Model.Utility.UniqueIDGenerator;
+import com.tp.lab.model.utility.UniqueIDGenerator;
 
 public final class Address {
-    private long ID;
-    private static UniqueIDGenerator idGenerator = new UniqueIDGenerator();
+    private final long ID;
+    private final static UniqueIDGenerator idGenerator = new UniqueIDGenerator();
     private String country;
     private String city;
     private String street;
     private String homeNumber;
 
 
-    public Address(String country, String city, String street, String homeNumber) {
+    public Address(final String country, final String city, final String street, final String homeNumber) {
         ID = idGenerator.getUniqueId();
         this.country = country;
         this.city = city;

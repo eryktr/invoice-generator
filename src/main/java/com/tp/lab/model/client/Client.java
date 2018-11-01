@@ -1,12 +1,12 @@
-package com.tp.lab.Model.Client;
+package com.tp.lab.model.client;
 
-import com.tp.lab.Model.Printable;
-import com.tp.lab.Model.Utility.Constants;
-import com.tp.lab.Model.Utility.Printer;
-import com.tp.lab.Model.Utility.UniqueIDGenerator;
+import com.tp.lab.model.PrintMode;
+import com.tp.lab.model.Printable;
+import com.tp.lab.model.utility.Constants;
+import com.tp.lab.model.utility.UniqueIDGenerator;
 
 public final class Client implements Printable {
-    private long id;
+    private final long id;
     private String firstName;
     private String lastName;
     private Address address;
@@ -14,7 +14,7 @@ public final class Client implements Printable {
 
     private static UniqueIDGenerator idGenerator = new UniqueIDGenerator();
 
-    public Client(String firstName, String lastName, Address address) {
+    public Client(final String firstName, final String lastName, final Address address) {
         this.id = idGenerator.getUniqueId();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -30,19 +30,19 @@ public final class Client implements Printable {
         return lastName;
     }
 
-    public String getCountry() {
+    private String getCountry() {
         return address.getCountry();
     }
 
-    public String getCity() {
+    private String getCity() {
         return address.getCity();
     }
 
-    public String getStreet() {
+    private String getStreet() {
         return address.getStreet();
     }
 
-    public String getHomeNumber() {
+    private String getHomeNumber() {
         return address.getHomeNumber();
     }
 
@@ -50,9 +50,6 @@ public final class Client implements Printable {
         return id;
     }
 
-    public void activate() {
-        isActive = true;
-    }
 
     public void deactivate() {
         isActive = false;
@@ -63,16 +60,18 @@ public final class Client implements Printable {
     }
 
     @Override
-    public void print() {
+    public void print(PrintMode mode) {
         System.out.println("ID: " + id);
-        System.out.println("First name: "+ firstName);
-        System.out.println("Last name: "+ lastName);
-        System.out.println("Country: " +  getCountry());
-        System.out.println("City: " +  getCity());
+        if (mode == PrintMode.Detailed) {
+            System.out.println("Active: " + isActive);
+        }
+        System.out.println("First name: " + firstName);
+        System.out.println("Last name: " + lastName);
+        System.out.println("Country: " + getCountry());
+        System.out.println("City: " + getCity());
         System.out.println("Street: " + getStreet());
-        System.out.println("Home number: "+ getHomeNumber());
-        System.out.println("Active: "+ isActive);
-        System.out.println(Constants.UnderlineString);
+        System.out.println("Home number: " + getHomeNumber());
+        System.out.println(Constants.UNDERLINE_STRING);
     }
 
 }
